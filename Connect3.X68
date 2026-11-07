@@ -288,6 +288,22 @@ EXIT_GAME:
 *************************************************************
 check_win:
         lea     board,a0
+        move.w  #0,d2
+H2:     move.b  #3,d6
+        subq.b  #1,d6
+        
+        addq    #1,d2
+        
+        cmpi.b  #1,d6
+        bne     H2
+H1:
+        move.b  #4,d4
+        subq.b  #1,d4
+        
+        addq    #3,d5
+        
+        cmpi.b  #1,d4
+        bne     H1
 
         ; Check horizontal combinations
         move.w  #0,d2
