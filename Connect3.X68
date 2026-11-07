@@ -288,37 +288,54 @@ EXIT_GAME:
 *************************************************************
 check_win:
         lea     board,a0
-
+        clr.l   d4
         ; Check horizontal combinations
-        move.w  #0,d2
+        
+        move.w  d4,d2
+        move.w  #1,d3
+        jsr     check_three
+        
+        addi.w  #1,d4   
+        
+        move.w  d4,d2
         move.w  #1,d3
         jsr     check_three
 
-        move.w  #1,d2
+
+        addi.w  #3,d4 
+        
+        
+        move.w  d4,d2
         move.w  #1,d3
         jsr     check_three
 
-        move.w  #4,d2
+        addi.w  #1,d4
+
+        move.w  d4,d2
         move.w  #1,d3
         jsr     check_three
 
-        move.w  #5,d2
+        addi.w  #3,d4
+
+        move.w  d4,d2
         move.w  #1,d3
         jsr     check_three
 
-        move.w  #8,d2
+        addi.w  #1,d4
+
+        move.w  d4,d2
         move.w  #1,d3
         jsr     check_three
 
-        move.w  #9,d2
+        addi.w  #3,d4
+
+        move.w  d4,d2
         move.w  #1,d3
         jsr     check_three
 
-        move.w  #12,d2
-        move.w  #1,d3
-        jsr     check_three
+        addi.w  #1,d4
 
-        move.w  #13,d2
+        move.w  d4,d2
         move.w  #1,d3
         jsr     check_three
 
@@ -454,6 +471,7 @@ CHECK_THREE_DONE:
            org     $A000
 board      ds.b    16          
            end    _MAIN        ; last line of source
+
 
 
 
