@@ -288,56 +288,39 @@ EXIT_GAME:
 *************************************************************
 check_win:
         lea     board,a0
-        move.w  #0,d2
-        
-H1:     
-        move.b  #5,d6
-        subq.b  #1,d6
-        
-        addq    #1,d2
-        move.w  #1,d3
-        jsr     check_three
-        
-        addq    #3,d2
-        move.w  #1,d3
-        jsr     check_three
-        
-        cmpi.b  #1,d6
-        bne     H1
-
 
         ; Check horizontal combinations
-        *move.w  #0,d2
-        *move.w  #1,d3
-        *jsr     check_three
+        move.w  #0,d2
+        move.w  #1,d3
+        jsr     check_three
 
-        *move.w  #1,d2
-        *move.w  #1,d3
-        *jsr     check_three
+        move.w  #1,d2
+        move.w  #1,d3
+        jsr     check_three
 
-        *move.w  #4,d2
-        *move.w  #1,d3
-        *jsr     check_three
+        move.w  #4,d2
+        move.w  #1,d3
+        jsr     check_three
 
-        *move.w  #5,d2
-        *move.w  #1,d3
-        *jsr     check_three
+        move.w  #5,d2
+        move.w  #1,d3
+        jsr     check_three
 
-        *move.w  #8,d2
-        *move.w  #1,d3
-        *jsr     check_three
+        move.w  #8,d2
+        move.w  #1,d3
+        jsr     check_three
 
-        *move.w  #9,d2
-        *move.w  #1,d3
-        *jsr     check_three
+        move.w  #9,d2
+        move.w  #1,d3
+        jsr     check_three
 
-        *move.w  #12,d2
-        *move.w  #1,d3
-        *jsr     check_three
+        move.w  #12,d2
+        move.w  #1,d3
+        jsr     check_three
 
-        *move.w  #13,d2
-        *move.w  #1,d3
-        *jsr     check_three
+        move.w  #13,d2
+        move.w  #1,d3
+        jsr     check_three
 
         ; Check vertical combinations
         move.w  #0,d2
@@ -471,6 +454,7 @@ CHECK_THREE_DONE:
            org     $A000
 board      ds.b    16          
            end    _MAIN        ; last line of source
+
 
 
 
