@@ -289,55 +289,19 @@ EXIT_GAME:
 check_win:
         lea     board,a0
         clr.l   d4
+        clr.l   d5
+        move.w  #9,d5
         ; Check horizontal combinations
-        
+LOOP        
         move.w  d4,d2
         move.w  #1,d3
         jsr     check_three
         
-        addi.w  #1,d4   
-        
-        move.w  d4,d2
-        move.w  #1,d3
-        jsr     check_three
-
-
-        addi.w  #3,d4 
-        
-        
-        move.w  d4,d2
-        move.w  #1,d3
-        jsr     check_three
-
         addi.w  #1,d4
-
-        move.w  d4,d2
-        move.w  #1,d3
-        jsr     check_three
-
-        addi.w  #3,d4
-
-        move.w  d4,d2
-        move.w  #1,d3
-        jsr     check_three
-
-        addi.w  #1,d4
-
-        move.w  d4,d2
-        move.w  #1,d3
-        jsr     check_three
-
-        addi.w  #3,d4
-
-        move.w  d4,d2
-        move.w  #1,d3
-        jsr     check_three
-
-        addi.w  #1,d4
-
-        move.w  d4,d2
-        move.w  #1,d3
-        jsr     check_three
+        
+        subi.w  #1,d5
+        cmpi.w  #1,d5
+        bne     LOOP
 
         ; Check vertical combinations
         move.w  #0,d2
